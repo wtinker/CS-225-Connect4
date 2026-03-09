@@ -7,7 +7,7 @@ class Board {
 	int board[6][7];
   public:
 	  Board();
-	  void display_board();
+	  void display_board_simple();
 	  void drop_piece(int column, int id);
 	  void reset_board();
 };
@@ -16,7 +16,7 @@ Board::Board() {
 	reset_board();
 }
 
-void Board::display_board() {
+void Board::display_board_simple() {
 	for (int i = 0; i < 6; i++) {
 		for (int j = 0; j < 7; j++) {
 			std::cout << board[i][j] << " ";
