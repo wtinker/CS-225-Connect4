@@ -1,6 +1,7 @@
 #pragma once
 #ifndef BOARD
 #define BOARD
+// BOARD FILE
 
 class Board {
   protected:

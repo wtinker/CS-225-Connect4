@@ -3,6 +3,9 @@
 #include <fstream>
 #include <ctime>
 #include <cstdlib>
+#include "bot.h"
+#include "board.h"
+#include "instructions.h"
 using namespace std;
 
 int main() {

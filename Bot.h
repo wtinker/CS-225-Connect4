@@ -2,6 +2,7 @@
 #ifndef BOT
 #define BOT
 using "Board.h";
+// BOT FILE
 
 class Bot {
   private:
