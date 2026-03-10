@@ -1,8 +1,1 @@
-﻿  Board.cpp
-  Bot.cpp
-  Instructions.cpp
-  main.cpp
-C:\Users\coope\source\repos\CS-225-Connect4-final\main.cpp(12,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
-MSVCRTD.lib(exe_winmain.obj) : error LNK2019: unresolved external symbol WinMain referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
-C:\Users\coope\source\repos\CS-225-Connect4-final\x64\Debug\Connect4.exe : fatal error LNK1120: 1 unresolved externals
+﻿  Connect4.vcxproj -> C:\Users\willc\source\repos\wtinker\CS-225-Connect4\x64\Debug\Connect4.exe
