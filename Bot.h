@@ -1,6 +1,4 @@
 #pragma once
-#ifndef BOT
-#define BOT
 
 #include "Board.h"
 // BOT FILE
@@ -21,5 +19,3 @@ class Bot {
   public:
 	int get_move(const Board&);
 };
-
-#endif // !BOT
