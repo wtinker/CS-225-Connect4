@@ -3,8 +3,8 @@
 #include <fstream>
 #include <ctime>
 #include <cstdlib>
-#include "bot.h"
-#include "board.h"
+#include "Bot.h"
+#include "Board.h"
 #include "instructions.h"
 using namespace std;
 
@@ -13,6 +13,7 @@ int main() {
 	string ifPlay;
 	string playerName;
 	bool playerFirst = false;
+	bool playerWin = false;
 
 	// rules/instruction
 	printInstructions();
