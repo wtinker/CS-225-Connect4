@@ -5,7 +5,7 @@
 
 class Bot {
   private:
-    int weights[7];
+    int weights[COLUMNS];
 	Board tempBoard;
 	void calculate_weights(const Board&);
   public:
