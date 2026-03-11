@@ -6,6 +6,7 @@
 #include "Bot.h"
 #include "Board.h"
 #include "instructions.h"
+#include "Board_Test.h"
 using namespace std;
 
 // DOES THIS WORK
@@ -16,6 +17,8 @@ int main() {
 	string playerName;
 	bool playerFirst = false;
 	bool playerWin = false;
+
+	//full_board_test();
 
 	// rules/instruction
 	printInstructions();

@@ -1,1 +1,10 @@
-﻿  Connect4.vcxproj -> C:\Users\willc\source\repos\wtinker\CS-225-Connect4\x64\Debug\Connect4.exe
+﻿  Board.cpp
+C:\Users\willc\source\repos\wtinker\CS-225-Connect4\Board.cpp(63,28): warning C4101: 'e': unreferenced local variable
+C:\Users\willc\source\repos\wtinker\CS-225-Connect4\Board.cpp(78,28): warning C4101: 'e': unreferenced local variable
+C:\Users\willc\source\repos\wtinker\CS-225-Connect4\Board.cpp(93,28): warning C4101: 'e': unreferenced local variable
+C:\Users\willc\source\repos\wtinker\CS-225-Connect4\Board.cpp(108,28): warning C4101: 'e': unreferenced local variable
+C:\Users\willc\source\repos\wtinker\CS-225-Connect4\Board.cpp(123,28): warning C4101: 'e': unreferenced local variable
+C:\Users\willc\source\repos\wtinker\CS-225-Connect4\Board.cpp(138,28): warning C4101: 'e': unreferenced local variable
+C:\Users\willc\source\repos\wtinker\CS-225-Connect4\Board.cpp(153,28): warning C4101: 'e': unreferenced local variable
+C:\Users\willc\source\repos\wtinker\CS-225-Connect4\Board.cpp(168,28): warning C4101: 'e': unreferenced local variable
+  Connect4.vcxproj -> C:\Users\willc\source\repos\wtinker\CS-225-Connect4\x64\Debug\Connect4.exe
