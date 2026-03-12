@@ -10,8 +10,6 @@
 #include "File_Log.h"
 using namespace std;
 
-// DOES THIS WORK
-
 int main() {
 	srand(time(NULL));
 	string ifPlay;
@@ -20,7 +18,17 @@ int main() {
 	bool playerWin = false;
 	string winner;
 
+	// START TEST CODE 
 	//full_board_test();
+	int num_moves = 37;
+	int board_final[ROWS][COLUMNS] = { {0,0,0,0,0,0,0},
+						{0,0,0,0,0,0,0},
+						{0,0,0,0,0,0,1},
+						{1,2,0,0,0,0,1},
+						{1,2,0,2,2,1,1},
+						{1,1,2,2,2,1,1} };
+
+	// END TEST CODE
 
 	// rules/instruction
 	printInstructions();
@@ -49,8 +57,8 @@ int main() {
 
 
 			// write to a file with all game details
-			if (playerFirst == true) { winner = playerName; }
-			gameLog(playerName, winner, num_moves, board_final[ROWS][COLUMNS]); // add other two once game play portion finished
+			if (playerFirst == true) { winner = playerName; } else { winner = "Computer"; }
+			gameLog(playerName, winner, num_moves, board_final); // add other two once game play portion finished
 
 			// display win vs loss vs tie message (0 = loss, 1 = win, 2 = tie)
 			if(playerWin == 0) {

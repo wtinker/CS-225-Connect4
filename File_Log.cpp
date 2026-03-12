@@ -5,9 +5,13 @@
 using namespace std;
 
 void gameLog(string p1, string winner, int num_moves, int board_final[ROWS][COLUMNS]) {
+    time_t current = time(NULL);
+    char* date = ctime(&current);
+    
     ofstream fileLog("gameRecord.txt", ios::app);
 
     fileLog << "===== Connect4 Game Info =====" << endl;
+    fileLog << "Date: " << date << endl;
     fileLog << "Player One: " << p1 << endl;
     fileLog << "Player Two: Computer" << endl;
     fileLog << "Winner: " << winner << endl;
@@ -31,7 +35,7 @@ void gameLog(string p1, string winner, int num_moves, int board_final[ROWS][COLU
         fileLog << "|" << endl;
     }
     fileLog << "-------------------" << endl;
-    fileLog << "    1 2 3 4 5 6 7 " << endl;
+    fileLog << "    1 2 3 4 5 6 7 " << endl << endl;
     fileLog << "====== End of Game Info ======" << endl << endl;
 
     fileLog.close();

@@ -1,7 +1,3 @@
-﻿  Board.cpp
-  Bot.cpp
-  Instructions.cpp
-  main.cpp
-C:\Users\coope\source\repos\CS-225-Connect4-final\main.cpp(14,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
+﻿  File_Log.cpp
+C:\Users\coope\source\repos\CS-225-Connect4-final\File_Log.cpp(9,18): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   Connect4.vcxproj -> C:\Users\coope\source\repos\CS-225-Connect4-final\x64\Debug\Connect4.exe
