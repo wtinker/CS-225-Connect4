@@ -7,6 +7,7 @@
 #include "Board.h"
 #include "instructions.h"
 #include "Board_Test.h"
+#include "File_Log.h"
 using namespace std;
 
 // DOES THIS WORK
@@ -17,6 +18,7 @@ int main() {
 	string playerName;
 	bool playerFirst = false;
 	bool playerWin = false;
+	string winner;
 
 	//full_board_test();
 
@@ -47,7 +49,8 @@ int main() {
 
 
 			// write to a file with all game details
-			
+			if (playerFirst == true) { winner = playerName; }
+			gameLog(playerName, winner, num_moves, board_final[ROWS][COLUMNS]); // add other two once game play portion finished
 
 			// display win vs loss vs tie message (0 = loss, 1 = win, 2 = tie)
 			if(playerWin == 0) {
