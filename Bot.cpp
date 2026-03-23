@@ -48,7 +48,6 @@ void Bot::calculate_weights(const Board& trueBoard) {
 }
 
 int Bot::first_move() {
-	srand(time(NULL));
 	int first_move = rand() % COLUMNS;
 	return first_move;
 }

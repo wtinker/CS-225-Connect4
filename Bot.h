@@ -1,8 +1,6 @@
 #pragma once
 
 #include "Board.h"
-#include <cstdlib>
-#include <ctime>
 // BOT FILE
 
 class Bot {
