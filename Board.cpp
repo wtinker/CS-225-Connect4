@@ -61,7 +61,7 @@ int Board::check_right(int id, int row, int column) {
 		}
 	}
 	catch (std::out_of_range& e) {
-		std::cout << "out of bounds right" << std::endl;
+		//std::cout << "out of bounds right" << std::endl;
 		return 0;
 	}
 }
@@ -76,7 +76,7 @@ int Board::check_left(int id, int row, int column) {
 		}
 	}
 	catch (std::out_of_range& e) {
-		std::cout << "out of bounds left" << std::endl;
+		//std::cout << "out of bounds left" << std::endl;
 		return 0;
 	}
 }
@@ -91,7 +91,7 @@ int Board::check_down(int id, int row, int column) {
 		}
 	}
 	catch (std::out_of_range& e) {
-		std::cout << "out of bounds down" << std::endl;
+		//std::cout << "out of bounds down" << std::endl;
 		return 0;
 	}
 }
@@ -106,7 +106,7 @@ int Board::check_up(int id, int row, int column) {
 		}
 	}
 	catch (std::out_of_range& e) {
-		std::cout << "out of bounds up" << std::endl;
+		//std::cout << "out of bounds up" << std::endl;
 		return 0;
 	}
 }
@@ -121,7 +121,7 @@ int Board::check_upper_left(int id, int row, int column) {
 		}
 	}
 	catch (std::out_of_range& e) {
-		std::cout << "out of bounds up left" << std::endl;
+		//std::cout << "out of bounds up left" << std::endl;
 		return 0;
 	}
 }
@@ -136,7 +136,7 @@ int Board::check_upper_right(int id, int row, int column) {
 		}
 	}
 	catch (std::out_of_range& e) {
-		std::cout << "out of bounds up right" << std::endl;
+		//std::cout << "out of bounds up right" << std::endl;
 		return 0;
 	}
 }
@@ -151,7 +151,7 @@ int Board::check_lower_left(int id, int row, int column) {
 		}
 	}
 	catch (std::out_of_range& e) {
-		std::cout << "out of bounds down left" << std::endl;
+		//std::cout << "out of bounds down left" << std::endl;
 		return 0;
 	}
 }
@@ -166,7 +166,7 @@ int Board::check_lower_right(int id, int row, int column) {
 		}
 	}
 	catch (std::out_of_range& e) {
-		std::cout << "out of bounds down right" << std::endl;
+		//std::cout << "out of bounds down right" << std::endl;
 		return 0;
 	}
 }
@@ -201,4 +201,19 @@ bool Board::check_bot_win() {
 		}
 	}
 	return false;
+}
+
+int Board::check_all_connections(int id) {
+	int total = 0;
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLUMNS; j++) {
+			if (board[i][j] == id) {
+				total += check_right(id, i, j) + check_left(id, i, j)
+					+ check_down(id, i, j) + check_up(id, i, j)
+					+ check_upper_left(id, i, j) + check_upper_right(id, i, j)
+					+ check_lower_left(id, i, j) + check_lower_right(id, i, j) - 8;
+			}
+		}
+	}
+	return total;
 }

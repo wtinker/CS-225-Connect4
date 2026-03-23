@@ -28,4 +28,5 @@ class Board {
 	  int check_upper_right(int id, int row, int column);
 	  int check_lower_left(int id, int row, int column);
 	  int check_lower_right(int id, int row, int column);
+	  int check_all_connections(int id);
 };
