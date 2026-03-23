@@ -18,7 +18,11 @@ void Bot::calculate_weights(const Board& trueBoard) {
 		weights[i] = 0;
 		tempBoard = trueBoard;
 		//drop a bot piece in column i, if bot win, add very high weight
-		tempBoard.drop_piece(i, 2); 
+		try{tempBoard.drop_piece(i, 2);}
+		catch (std::out_of_range& e) {
+			weights[i] = -1000000;
+			continue;
+		}
 		if (tempBoard.check_bot_win()) {
 			weights[i] += 1000000;
 		}
@@ -28,12 +32,17 @@ void Bot::calculate_weights(const Board& trueBoard) {
 			//add all bot connections to weight
 			//subract all player connections from weight
 			tempBoard2 = tempBoard;
-			tempBoard2.drop_piece(j, 1);
-			if (tempBoard2.check_player_win()) {
-				weights[i] -= 100000;
+			try { 
+				tempBoard2.drop_piece(j, 1); 
+				if (tempBoard2.check_player_win()) {
+					weights[i] -= 100000;
+				}
+				weights[i] += tempBoard2.check_all_connections(2);
+				weights[i] -= tempBoard2.check_all_connections(1);
 			}
-			weights[i] += tempBoard2.check_all_connections(2);
-			weights[i] -= tempBoard2.check_all_connections(1);
+			catch (std::out_of_range& e) {
+				continue;
+			}
 		}
 	}
 }
