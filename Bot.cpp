@@ -17,20 +17,20 @@ void Bot::calculate_weights(const Board& trueBoard) {
 	for (int i = 0; i < COLUMNS; i++) {
 		weights[i] = 0;
 		tempBoard = trueBoard;
-		//drop a bot piece in column i, if bot win, add 10000 weight
+		//drop a bot piece in column i, if bot win, add very high weight
 		tempBoard.drop_piece(i, 2); 
 		if (tempBoard.check_bot_win()) {
-			weights[i] += 10000;
+			weights[i] += 1000000;
 		}
 		for (int j = 0; j < COLUMNS; j++) {
 			//drop a player piece in column j
-			// if player win, subtract 1000 weight
+			// if player win, subtract high weight
 			//add all bot connections to weight
 			//subract all player connections from weight
 			tempBoard2 = tempBoard;
 			tempBoard2.drop_piece(j, 1);
 			if (tempBoard2.check_player_win()) {
-				weights[i] -= 1000;
+				weights[i] -= 100000;
 			}
 			weights[i] += tempBoard2.check_all_connections(2);
 			weights[i] -= tempBoard2.check_all_connections(1);
