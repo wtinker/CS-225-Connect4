@@ -125,6 +125,7 @@
     <ClCompile Include="File_Log.cpp" />
     <ClCompile Include="Instructions.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Run_Game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
@@ -132,6 +133,7 @@
     <ClInclude Include="Bot.h" />
     <ClInclude Include="File_Log.h" />
     <ClInclude Include="instructions.h" />
+    <ClInclude Include="Run_Game.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
