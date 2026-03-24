@@ -1,0 +1,20 @@
+===== Connect4 Game Info =====
+Date: Tue Mar 24 14:17:40 2026
+
+Player One: Will
+Player Two: Computer
+Winner: Will
+Total Moves: 4
+Final Board: 
+
+1 | * * * * * * * |
+2 | * * * * * * * |
+3 | * * * * * * * |
+4 | X * * * * * * |
+5 | X * * * * * * |
+6 | X * * O O O O |
+-------------------
+    1 2 3 4 5 6 7 
+
+====== End of Game Info ======
+

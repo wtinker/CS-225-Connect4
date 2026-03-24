@@ -11,4 +11,6 @@ class Bot {
   public:
 	int get_move(const Board&);
 	int first_move();
+	Bot();
+	~Bot();
 };

@@ -22,6 +22,7 @@ ostream& operator<<(ostream& os, const Board& b) {
 			os << b.board[i][j] << " ";
 		}
 		os << endl;
+	}
 	return os;
 	}
 }
@@ -229,4 +230,8 @@ int Board::check_all_connections(int id) {
 		}
 	}
 	return total;
+}
+
+Board::~Board() {
+	// No dynamic memory to free
 }

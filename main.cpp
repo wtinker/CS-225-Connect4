@@ -10,7 +10,7 @@
 #include "File_Log.h"
 using namespace std;
 
-int run_game(bool, int&);
+int run_game(bool, int&, Board&);
 
 int main() {
 	srand(time(NULL));
@@ -18,17 +18,19 @@ int main() {
 	string playerName;
 	bool playerFirst = false;
 	int playerWin = 0;
+	int num_moves = 0;
+	Board board_final;
 	string winner;
 
 	// START TEST CODE 
 	//full_board_test();
-	int num_moves = 37;
-	int board_final[ROWS][COLUMNS] = { {0,0,0,0,0,0,0},
-						{0,0,0,0,0,0,0},
-						{0,0,0,0,0,0,1},
-						{1,2,0,0,0,0,1},
-						{1,2,0,2,2,1,1},
-						{1,1,2,2,2,1,1} };
+	//int num_moves = 37;
+	//int board_final[ROWS][COLUMNS] = { {0,0,0,0,0,0,0},
+	//					{0,0,0,0,0,0,0},
+	//					{0,0,0,0,0,0,1},
+	//					{1,2,0,0,0,0,1},
+	//					{1,2,0,2,2,1,1},
+	//					{1,1,2,2,2,1,1} };
 
 	// END TEST CODE
 
@@ -56,7 +58,7 @@ int main() {
 
 			// Game play first move to win/loss/tie
 			// I think this should be a header file to not over croud main
-			playerWin = run_game(playerFirst, num_moves);
+			playerWin = run_game(playerFirst, num_moves, board_final);
 
 
 			// write to a file with all game details
@@ -83,7 +85,7 @@ int main() {
 	return 0;
 }
 
-int Run_Game(bool playerFirst, int& moveCount) {
+int run_game(bool playerFirst, int& moveCount, Board& final) {
 	Board mainBoard;
 	Bot bot;
 	bool gameOver = false;
@@ -117,12 +119,14 @@ int Run_Game(bool playerFirst, int& moveCount) {
 		if (mainBoard.check_player_win()) {
 			result = 1;
 			gameOver = true;
+			final = mainBoard;
 			continue;
 
 		}
 		else if (mainBoard.check_full()) {
 			result = 2;
 			gameOver = true;
+			final = mainBoard;
 			continue;
 		}
 		//get bot move
@@ -131,11 +135,13 @@ int Run_Game(bool playerFirst, int& moveCount) {
 		if (mainBoard.check_bot_win()) {
 			result = 0;
 			gameOver = true;
+			final = mainBoard;
 			continue;
 		}
 		else if (mainBoard.check_full()) {
 			result = 2;
 			gameOver = true;
+			final = mainBoard;
 			continue;
 		}
 

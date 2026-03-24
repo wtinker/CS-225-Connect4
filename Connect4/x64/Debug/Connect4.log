@@ -1,3 +1,4 @@
-﻿  File_Log.cpp
-C:\Users\coope\source\repos\CS-225-Connect4-final\File_Log.cpp(9,18): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  Connect4.vcxproj -> C:\Users\coope\source\repos\CS-225-Connect4-final\x64\Debug\Connect4.exe
+﻿  main.cpp
+C:\Users\willc\source\repos\wtinker\CS-225-Connect4\main.cpp(16,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\willc\source\repos\wtinker\CS-225-Connect4\main.cpp(114,29): warning C4101: 'e': unreferenced local variable
+  Connect4.vcxproj -> C:\Users\willc\source\repos\wtinker\CS-225-Connect4\x64\Debug\Connect4.exe
