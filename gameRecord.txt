@@ -18,3 +18,23 @@ Final Board:
 
 ====== End of Game Info ======
 
+===== Connect4 Game Info =====
+Date: Tue Mar 24 14:38:59 2026
+
+Player One: Cooper
+Player Two: Computer
+Winner: Cooper
+Total Moves: 4
+Final Board: 
+
+1 | * * * * * * * |
+2 | * * * * * * * |
+3 | X * * * * * * |
+4 | X * * * * * * |
+5 | X * * * * * * |
+6 | O O O O * * * |
++-----------------+
+    1 2 3 4 5 6 7 
+
+====== End of Game Info ======
+

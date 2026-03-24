@@ -51,8 +51,10 @@ int main() {
 			cout << "Flipping coin to decide who goes first..." << endl;
 			int coinFace = rand() % 2 + 1;
 			if (coinFace == 1) {
+				cout << "The computer will be going first!" << endl;
 				playerFirst = false;
 			} else {
+				cout << "You will be going first!" << endl;
 				playerFirst = true;
 			}
 
@@ -105,8 +107,9 @@ int run_game(bool playerFirst, int& moveCount, Board& final) {
 		//display board
 		cout << "Current board state: " << endl << mainBoard;
 		//get player move
-		cout << "Enter column number (0-" << COLUMNS << "): ";
+		cout << "Enter column number (1-" << COLUMNS << "): ";
 		cin >> playerMove;
+		playerMove--;
 		moveCount++;
 		try {
 			mainBoard.drop_piece(playerMove, 1);
@@ -121,7 +124,6 @@ int run_game(bool playerFirst, int& moveCount, Board& final) {
 			gameOver = true;
 			final = mainBoard;
 			continue;
-
 		}
 		else if (mainBoard.check_full()) {
 			result = 2;

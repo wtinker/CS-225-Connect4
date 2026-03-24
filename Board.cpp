@@ -5,26 +5,29 @@ using namespace std;
 Board::Board() {
 	reset_board();
 }
-/*
-void Board::display_board_simple() {
-	for (int i = 0; i < ROWS; i++) {
-		for (int j = 0; j < COLUMNS; j++) {
-			cout << board[i][j] << " ";
-		}
-		cout << endl;
-	}
-}
-*/
 
 ostream& operator<<(ostream& os, const Board& b) {
 	for (int i = 0; i < ROWS; i++) {
+		os << i + 1 << " | ";
+
 		for (int j = 0; j < COLUMNS; j++) {
-			os << b.board[i][j] << " ";
+			if (b.board[i][j] == 0) {
+				os << "* ";
+			}
+			else if (b.board[i][j] == 1) {
+				os << "O ";
+			}
+			else if (b.board[i][j] == 2) {
+				os << "X ";
+			}
 		}
-		os << endl;
+
+		os << "|" << endl;
 	}
+	os << "+-----------------+" << endl;
+	os << "    1 2 3 4 5 6 7 " << endl << endl;
+
 	return os;
-	}
 }
 
 void Board::drop_piece(int column, int id) {

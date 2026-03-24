@@ -12,10 +12,11 @@ void printInstructions() {
     cout << "2. On your turn, enter the column number where you want to drop your piece and then," << endl
         << "   your piece will fall to the lowest available space in that column." << endl;
     cout << "3. The computer will then take its turn." << endl;
-    cout << "4. The game ends when someone connects 4 pieces or the board is full." << endl << endl;
+    cout << "4. The game ends when someone connects 4 pieces or the board is full." << endl;
+    cout << "5. You are 'O', the computer is 'X'. and empty space is '*'" << endl << endl;
     cout << "RULES:" << endl;
     cout << "1. You cannot place a piece in a full column." << endl;
     cout << "2. If you enter an invalid column, you must choose again." << endl << endl;
     cout << "Good luck!!" << endl;
-    cout << "===========================================" << endl;
+    cout << "====================================================================================" << endl;
 }

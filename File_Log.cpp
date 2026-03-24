@@ -34,7 +34,7 @@ void gameLog(string p1, string winner, int num_moves, Board board_final) {
 
         fileLog << "|" << endl;
     }
-    fileLog << "-------------------" << endl;
+    fileLog << "+-----------------+" << endl;
     fileLog << "    1 2 3 4 5 6 7 " << endl << endl;
     fileLog << "====== End of Game Info ======" << endl << endl;
 
