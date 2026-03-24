@@ -23,6 +23,7 @@ ostream& operator<<(ostream& os, const Board& b) {
 		}
 		os << endl;
 	return os;
+	}
 }
 
 void Board::drop_piece(int column, int id) {
