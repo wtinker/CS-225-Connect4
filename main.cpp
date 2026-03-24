@@ -10,12 +10,14 @@
 #include "File_Log.h"
 using namespace std;
 
+int run_game(bool, int&);
+
 int main() {
 	srand(time(NULL));
 	string ifPlay;
 	string playerName;
 	bool playerFirst = false;
-	bool playerWin = false;
+	int playerWin = 0;
 	string winner;
 
 	// START TEST CODE 
@@ -54,10 +56,11 @@ int main() {
 
 			// Game play first move to win/loss/tie
 			// I think this should be a header file to not over croud main
+			playerWin = run_game(playerFirst, num_moves);
 
 
 			// write to a file with all game details
-			if (playerFirst == true) { winner = playerName; } else { winner = "Computer"; }
+			if (playerFirst == 1) { winner = playerName; } else { winner = "Computer"; }
 			gameLog(playerName, winner, num_moves, board_final); // add other two once game play portion finished
 
 			// display win vs loss vs tie message (0 = loss, 1 = win, 2 = tie)
@@ -78,4 +81,65 @@ int main() {
 	}
 
 	return 0;
+}
+
+int Run_Game(bool playerFirst, int& moveCount) {
+	Board mainBoard;
+	Bot bot;
+	bool gameOver = false;
+	int result = 0;
+	int playerMove = 0;
+
+	//clear moveCount
+	moveCount = 0;
+
+	//bot first move if thats needed
+	if (!playerFirst) {
+		mainBoard.drop_piece(bot.first_move(), 2);
+	}
+
+	//main game loop
+	do {
+		//display board
+		cout << "Current board state: " << endl << mainBoard;
+		//get player move
+		cout << "Enter column number (0-" << COLUMNS << "): ";
+		cin >> playerMove;
+		moveCount++;
+		try {
+			mainBoard.drop_piece(playerMove, 1);
+		}
+		catch (std::out_of_range& e) {
+			cout << "Column is full. Please choose another column." << endl;
+			continue;
+		}
+		//check win/loss/tie
+		if (mainBoard.check_player_win()) {
+			result = 1;
+			gameOver = true;
+			continue;
+
+		}
+		else if (mainBoard.check_full()) {
+			result = 2;
+			gameOver = true;
+			continue;
+		}
+		//get bot move
+		mainBoard.drop_piece(bot.get_move(mainBoard), 2);
+		//check win/loss/tie
+		if (mainBoard.check_bot_win()) {
+			result = 0;
+			gameOver = true;
+			continue;
+		}
+		else if (mainBoard.check_full()) {
+			result = 2;
+			gameOver = true;
+			continue;
+		}
+
+	} while (!gameOver);
+
+	return result;
 }

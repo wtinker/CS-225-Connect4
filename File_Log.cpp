@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-void gameLog(string p1, string winner, int num_moves, int board_final[ROWS][COLUMNS]) {
+void gameLog(string p1, string winner, int num_moves, Board board_final) {
     time_t current = time(NULL);
     char* date = ctime(&current);
     
@@ -21,13 +21,13 @@ void gameLog(string p1, string winner, int num_moves, int board_final[ROWS][COLU
         fileLog << i + 1 << " | ";
 
         for (int j = 0; j < COLUMNS; j++) {
-            if (board_final[i][j] == 0) {
+            if (board_final.get_id(i,j) == 0) {
                 fileLog << "* ";
             }
-            else if (board_final[i][j] == 1) {
+            else if (board_final.get_id(i,j) == 1) {
                 fileLog << "O ";
             }
-            else if (board_final[i][j] == 2) {
+            else if (board_final.get_id(i,j) == 2) {
                 fileLog << "X ";
             }
         }
