@@ -41,6 +41,8 @@ void Bot::calculate_weights(const Board& trueBoard) {
 				weights[i] -= tempBoard2.check_all_connections(1);
 			}
 			catch (std::out_of_range& e) {
+				weights[i] += tempBoard2.check_all_connections(2);
+				weights[i] -= tempBoard2.check_all_connections(1);
 				continue;
 			}
 		}
