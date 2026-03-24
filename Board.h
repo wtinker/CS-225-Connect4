@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+using namespace std;
 
 #define ROWS 6
 #define COLUMNS 7
@@ -21,7 +22,8 @@ class Board {
 	int check_lower_right(int id, int row, int column);
   public:
 	Board();
-	void display_board_simple();
+	friend ostream& operator<<(ostream& os, const Board& b);
+	//void display_board_simple();
 	void drop_piece(int column, int id);
 	int get_id(int row, int column);
 	void reset_board();
