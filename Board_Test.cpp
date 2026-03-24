@@ -10,7 +10,7 @@ void test_board_initialization() {
 	cout << "Creating board...:" << endl;
 	Board board;
 	cout << "Displaying board...:" << endl;
-	board.display_board_simple();
+	cout << board;
 }
 
 void test_drop_piece() {
@@ -19,12 +19,12 @@ void test_drop_piece() {
 	for (int i = 0; i < COLUMNS; i++) {
 		cout << "Dropping player piece in column " << i << endl;
 		board.drop_piece(i, 1);
-		board.display_board_simple();
+		cout << board;
 	}
 	for (int i = 0; i < COLUMNS; i++) {
 		cout << "Dropping bot piece in column " << i << endl;
 		board.drop_piece(i, 2);
-		board.display_board_simple();
+		cout << board;
 	}
 }
 
@@ -34,7 +34,7 @@ void test_player_win() {
 	for (int i = 0; i < 4; i++) {
 		board.drop_piece(i, 1);
 	}
-	board.display_board_simple();
+	cout << board;
 	if (board.check_player_win()) {
 		cout << "Player win detected successfully!" << endl;
 	}
@@ -49,7 +49,7 @@ void test_bot_win() {
 	for (int i = 0; i < 4; i++) {
 		board.drop_piece(i, 2);
 	}
-	board.display_board_simple();
+	cout << board;
 	if (board.check_bot_win()) {
 		cout << "Bot win detected successfully!" << endl;
 	}
@@ -68,7 +68,7 @@ void test_checks() {
 			board.drop_piece(i, id);
 		}
 	}
-	board.display_board_simple();
+	cout << board;
 	int pieceID = board.get_id(2, 3);
 	cout << "Calculating checks for center piece ID "<< pieceID << endl;
 	cout << "Right check: " << board.check_right(pieceID, 2, 3) << endl;

@@ -53,3 +53,13 @@ int Bot::first_move() {
 	int first_move = rand() % COLUMNS;
 	return first_move;
 }
+
+Bot::Bot() {
+	for (int i = 0; i < COLUMNS; i++) {
+		weights[i] = 0;
+	}
+}
+
+Bot::~Bot() {
+	// No dynamic memory to free
+}
