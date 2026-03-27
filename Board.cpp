@@ -238,3 +238,12 @@ int Board::check_all_connections(int id) {
 Board::~Board() {
 	// No dynamic memory to free
 }
+
+Board Board::operator=(int new_board[ROWS][COLUMNS]) {
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLUMNS; j++) {
+			this->board[i][j] = new_board[i][j];
+		}
+	}
+	return *this;
+}

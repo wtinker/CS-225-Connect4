@@ -149,5 +149,7 @@ int run_game(bool playerFirst, int& moveCount, Board& final) {
 
 	} while (!gameOver);
 
+	cout << "Final board state: " << endl << mainBoard;
+
 	return result;
 }

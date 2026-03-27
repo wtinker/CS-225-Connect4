@@ -32,4 +32,5 @@ class Board {
 	bool check_bot_win();
 	bool check_full();
 	int check_all_connections(int id);
+	Board operator=(int[ROWS][COLUMNS]);
 };
