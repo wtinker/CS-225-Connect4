@@ -1,6 +1,4 @@
 ﻿  Bot.cpp
-C:\Users\willc\source\repos\wtinker\CS-225-Connect4\Bot.cpp(40,23): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\willc\source\repos\wtinker\CS-225-Connect4\Bot.cpp(44,23): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
 C:\Users\willc\source\repos\wtinker\CS-225-Connect4\Bot.cpp(22,29): warning C4101: 'e': unreferenced local variable
 C:\Users\willc\source\repos\wtinker\CS-225-Connect4\Bot.cpp(43,30): warning C4101: 'e': unreferenced local variable
   Connect4.vcxproj -> C:\Users\willc\source\repos\wtinker\CS-225-Connect4\x64\Debug\Connect4.exe

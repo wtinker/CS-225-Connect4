@@ -235,6 +235,24 @@ int Board::check_all_connections(int id) {
 	return total;
 }
 
+int Board::check_highest_connection(int id) {
+	int highest = 0;
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLUMNS; j++) {
+			if (board[i][j] == id) {
+				int connection_length = check_right(id, i, j) + check_left(id, i, j)
+					+ check_down(id, i, j) + check_up(id, i, j)
+					+ check_upper_left(id, i, j) + check_upper_right(id, i, j)
+					+ check_lower_left(id, i, j) + check_lower_right(id, i, j) - 8;
+				if (connection_length > highest) {
+					highest = connection_length;
+				}
+			}
+		}
+	}
+	return highest;
+}
+
 Board::~Board() {
 	// No dynamic memory to free
 }

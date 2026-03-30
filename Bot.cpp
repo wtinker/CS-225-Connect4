@@ -37,12 +37,12 @@ void Bot::calculate_weights(Board trueBoard) {
 				if (tempBoard2.check_player_win()) {
 					weights[i] -= 100000;
 				}
-				weights[i] += 0.5 * tempBoard2.check_all_connections(2);
-				weights[i] -= 5 * tempBoard2.check_all_connections(1);
+				weights[i] += (1 * tempBoard2.check_all_connections(2) + 1 * (trueBoard.check_highest_connection(2) - tempBoard2.check_highest_connection(2)));
+				weights[i] -= (1 * tempBoard2.check_all_connections(1) + 3 * (trueBoard.check_highest_connection(1) - tempBoard2.check_highest_connection(1)));
 			}
 			catch (std::out_of_range& e) {
-				weights[i] += 0.5 * tempBoard2.check_all_connections(2);
-				weights[i] -= 5 * tempBoard2.check_all_connections(1);
+				weights[i] += (1 * tempBoard2.check_all_connections(2) + 1 * (trueBoard.check_highest_connection(2) - tempBoard2.check_highest_connection(2)));
+				weights[i] -= (1 * tempBoard2.check_all_connections(1) + 3 * (trueBoard.check_highest_connection(1) - tempBoard2.check_highest_connection(1)));
 				continue;
 			}
 		}
