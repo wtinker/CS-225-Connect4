@@ -34,7 +34,7 @@ void Board::drop_piece(int column, int id) {
 	if (board[0][column] != 0) {
 		throw out_of_range("Column is full");
 	}
-	for (int i = COLUMNS - 1; i >= 0; i--) {
+	for (int i = ROWS - 1; i >= 0; i--) {
 		if (board[i][column] == 0) {
 			board[i][column] = id;
 			break;

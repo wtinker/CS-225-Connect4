@@ -4,12 +4,12 @@
 // BOT FILE
 
 class Bot {
-  private:
+  protected:
     int weights[COLUMNS];
 	Board tempBoard, tempBoard2;
-	void calculate_weights(const Board&);
+	void calculate_weights(Board);
   public:
-	int get_move(const Board&);
+	int get_move(Board);
 	int first_move();
 	Bot();
 	~Bot();

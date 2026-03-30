@@ -7,6 +7,7 @@
 #include "Board.h"
 #include "instructions.h"
 #include "Board_Test.h"
+#include "Bot_Tester.h"
 #include "File_Log.h"
 using namespace std;
 
@@ -22,10 +23,12 @@ int main() {
 	Board boardFinal;
 	string winner;
 
+	bool inTesting = true;
+
 	// rules/instruction
 	printInstructions();
 
-	// ask player if they want to play
+	// ask mplayer if they want to play
 	cout << "Would you like to play (yes or no)? ";
 	cin >> ifPlay;
 
@@ -68,7 +71,30 @@ int main() {
 			cout << "Would you like to play again (yes or no)? ";
 			cin >> ifPlay;
 		}
-	} else {
+	} else if (inTesting) {
+		Board_Tester boardTester;
+		boardTester.full_board_test();
+
+		Bot_Tester botTester;
+		botTester.test_first_move();
+
+		int testBoard[ROWS][COLUMNS] = {
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 2, 0, 0, 0},
+			{0, 0, 0, 1, 1, 0, 0} };
+		botTester.load_board(testBoard);
+		botTester.disp_board();
+
+		//botTester.random_board(3);
+		//botTester.disp_board();
+		botTester.test_calculate_weights();
+		botTester.disp_board();
+		botTester.test_get_move();
+	}
+	else {
 		cout << "Sounds good! I'll be here if you change your mind!" << endl;
 	}
 

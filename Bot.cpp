@@ -1,6 +1,6 @@
 #include "Bot.h"
 
-int Bot::get_move(const Board& trueBoard) {
+int Bot::get_move(Board trueBoard) {
 	calculate_weights(trueBoard);
 	int max_weight = weights[0];
 	int weight_index = 0;
@@ -13,7 +13,7 @@ int Bot::get_move(const Board& trueBoard) {
 	return weight_index;
 }
 
-void Bot::calculate_weights(const Board& trueBoard) {
+void Bot::calculate_weights(Board trueBoard) {
 	for (int i = 0; i < COLUMNS; i++) {
 		weights[i] = 0;
 		tempBoard = trueBoard;
@@ -37,12 +37,12 @@ void Bot::calculate_weights(const Board& trueBoard) {
 				if (tempBoard2.check_player_win()) {
 					weights[i] -= 100000;
 				}
-				weights[i] += tempBoard2.check_all_connections(2);
-				weights[i] -= tempBoard2.check_all_connections(1);
+				weights[i] += 0.5 * tempBoard2.check_all_connections(2);
+				weights[i] -= 5 * tempBoard2.check_all_connections(1);
 			}
 			catch (std::out_of_range& e) {
-				weights[i] += tempBoard2.check_all_connections(2);
-				weights[i] -= tempBoard2.check_all_connections(1);
+				weights[i] += 0.5 * tempBoard2.check_all_connections(2);
+				weights[i] -= 5 * tempBoard2.check_all_connections(1);
 				continue;
 			}
 		}

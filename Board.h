@@ -10,13 +10,8 @@ using namespace std;
 // BOARD FILE
 
 class Board {
-  private:
+  protected:
 	int board[ROWS][COLUMNS];
-  public:
-	Board();
-	~Board();
-	friend ostream& operator<<(ostream& os, const Board& b);
-	//void display_board_simple();
 	int check_down(int id, int row, int column);
 	int check_up(int id, int row, int column);
 	int check_left(int id, int row, int column);
@@ -25,6 +20,11 @@ class Board {
 	int check_upper_right(int id, int row, int column);
 	int check_lower_left(int id, int row, int column);
 	int check_lower_right(int id, int row, int column);
+  public:
+	Board();
+	~Board();
+	friend ostream& operator<<(ostream& os, const Board& b);
+	//void display_board_simple();
 	void drop_piece(int column, int id);
 	int get_id(int row, int column);
 	void reset_board();
