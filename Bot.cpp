@@ -17,6 +17,8 @@ void Bot::calculate_weights(Board trueBoard) {
 	for (int i = 0; i < COLUMNS; i++) {
 		weights[i] = 0;
 		tempBoard = trueBoard;
+		int botHighest = tempBoard.check_highest_connection(2);
+		int playerHighest = tempBoard.check_highest_connection(1);
 		//drop a bot piece in column i, if bot win, add very high weight
 		try{tempBoard.drop_piece(i, 2);}
 		catch (std::out_of_range& e) {
@@ -25,6 +27,7 @@ void Bot::calculate_weights(Board trueBoard) {
 		}
 		if (tempBoard.check_bot_win()) {
 			weights[i] += 1000000;
+			continue;
 		}
 		for (int j = 0; j < COLUMNS; j++) {
 			//drop a player piece in column j
@@ -36,13 +39,14 @@ void Bot::calculate_weights(Board trueBoard) {
 				tempBoard2.drop_piece(j, 1); 
 				if (tempBoard2.check_player_win()) {
 					weights[i] -= 100000;
+					continue;
 				}
-				weights[i] += (1 * tempBoard2.check_all_connections(2) + 1 * (trueBoard.check_highest_connection(2) - tempBoard2.check_highest_connection(2)));
-				weights[i] -= (1 * tempBoard2.check_all_connections(1) + 3 * (trueBoard.check_highest_connection(1) - tempBoard2.check_highest_connection(1)));
+				weights[i] += (1 * tempBoard2.check_all_connections(2) + 1 * (botHighest - tempBoard2.check_highest_connection(2)));
+				weights[i] -= (1 * tempBoard2.check_all_connections(1) + 3 * (playerHighest - tempBoard2.check_highest_connection(1)));
 			}
 			catch (std::out_of_range& e) {
-				weights[i] += (1 * tempBoard2.check_all_connections(2) + 1 * (trueBoard.check_highest_connection(2) - tempBoard2.check_highest_connection(2)));
-				weights[i] -= (1 * tempBoard2.check_all_connections(1) + 3 * (trueBoard.check_highest_connection(1) - tempBoard2.check_highest_connection(1)));
+				weights[i] += (1 * tempBoard2.check_all_connections(2) + 1 * (botHighest - tempBoard2.check_highest_connection(2)));
+				weights[i] -= (1 * tempBoard2.check_all_connections(1) + 3 * (playerHighest - tempBoard2.check_highest_connection(1)));
 				continue;
 			}
 		}

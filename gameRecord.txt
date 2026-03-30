@@ -158,3 +158,43 @@ Final Board:
 
 ====== End of Game Info ======
 
+===== Connect4 Game Info =====
+Date: Mon Mar 30 10:50:21 2026
+
+Player One: Will
+Player Two: Computer
+Winner: Computer
+Total Moves: 9
+Final Board: 
+
+1 | * * * * * * * |
+2 | * * * * * * * |
+3 | * * * * X X * |
+4 | * * * X O O * |
+5 | O X X X O O O |
+6 | X X X O O O X |
++-----------------+
+    1 2 3 4 5 6 7 
+
+====== End of Game Info ======
+
+===== Connect4 Game Info =====
+Date: Mon Mar 30 10:55:33 2026
+
+Player One: Will
+Player Two: Computer
+Winner: Computer
+Total Moves: 9
+Final Board: 
+
+1 | * * * * * * * |
+2 | * * * * * * * |
+3 | * * X * X X * |
+4 | * * X * O O * |
+5 | O X X * O O O |
+6 | X X X O O O X |
++-----------------+
+    1 2 3 4 5 6 7 
+
+====== End of Game Info ======
+
