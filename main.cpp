@@ -23,7 +23,7 @@ int main() {
 	Board boardFinal;
 	string winner;
 
-	bool inTesting = true;
+	bool inTesting = false;
 
 	// rules/instruction
 	printInstructions();
