@@ -1,4 +1,22 @@
-﻿  main.cpp
-C:\Users\willc\source\repos\wtinker\CS-225-Connect4\main.cpp(16,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\willc\source\repos\wtinker\CS-225-Connect4\main.cpp(117,29): warning C4101: 'e': unreferenced local variable
-  Connect4.vcxproj -> C:\Users\willc\source\repos\wtinker\CS-225-Connect4\x64\Debug\Connect4.exe
+﻿  Board.cpp
+C:\Users\coope\source\repos\CS-225-Connect4-final\Board.cpp(80,23): warning C4101: 'e': unreferenced local variable
+C:\Users\coope\source\repos\CS-225-Connect4-final\Board.cpp(95,23): warning C4101: 'e': unreferenced local variable
+C:\Users\coope\source\repos\CS-225-Connect4-final\Board.cpp(110,23): warning C4101: 'e': unreferenced local variable
+C:\Users\coope\source\repos\CS-225-Connect4-final\Board.cpp(125,23): warning C4101: 'e': unreferenced local variable
+C:\Users\coope\source\repos\CS-225-Connect4-final\Board.cpp(140,23): warning C4101: 'e': unreferenced local variable
+C:\Users\coope\source\repos\CS-225-Connect4-final\Board.cpp(155,23): warning C4101: 'e': unreferenced local variable
+C:\Users\coope\source\repos\CS-225-Connect4-final\Board.cpp(170,23): warning C4101: 'e': unreferenced local variable
+C:\Users\coope\source\repos\CS-225-Connect4-final\Board.cpp(185,23): warning C4101: 'e': unreferenced local variable
+  Board_Test.cpp
+C:\Users\coope\source\repos\CS-225-Connect4-final\Board_Test.cpp(62,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Bot.cpp
+C:\Users\coope\source\repos\CS-225-Connect4-final\Bot.cpp(22,29): warning C4101: 'e': unreferenced local variable
+C:\Users\coope\source\repos\CS-225-Connect4-final\Bot.cpp(43,30): warning C4101: 'e': unreferenced local variable
+  File_Log.cpp
+C:\Users\coope\source\repos\CS-225-Connect4-final\File_Log.cpp(9,18): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Instructions.cpp
+  main.cpp
+C:\Users\coope\source\repos\CS-225-Connect4-final\main.cpp(16,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\coope\source\repos\CS-225-Connect4-final\main.cpp(117,29): warning C4101: 'e': unreferenced local variable
+  Generating Code...
+  Connect4.vcxproj -> C:\Users\coope\source\repos\CS-225-Connect4-final\x64\Debug\Connect4.exe

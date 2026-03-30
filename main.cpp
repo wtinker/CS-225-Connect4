@@ -10,7 +10,7 @@
 #include "File_Log.h"
 using namespace std;
 
-int run_game(bool, int&, Board&);
+int runGame(bool, int&, Board&);
 
 int main() {
 	srand(time(NULL));
@@ -18,21 +18,9 @@ int main() {
 	string playerName;
 	bool playerFirst = false;
 	int playerWin = 0;
-	int num_moves = 0;
-	Board board_final;
+	int numMoves = 0;
+	Board boardFinal;
 	string winner;
-
-	// START TEST CODE 
-	//full_board_test();
-	//int num_moves = 37;
-	//int board_final[ROWS][COLUMNS] = { {0,0,0,0,0,0,0},
-	//					{0,0,0,0,0,0,0},
-	//					{0,0,0,0,0,0,1},
-	//					{1,2,0,0,0,0,1},
-	//					{1,2,0,2,2,1,1},
-	//					{1,1,2,2,2,1,1} };
-
-	// END TEST CODE
 
 	// rules/instruction
 	printInstructions();
@@ -60,12 +48,12 @@ int main() {
 
 			// Game play first move to win/loss/tie
 			// I think this should be a header file to not over croud main
-			playerWin = run_game(playerFirst, num_moves, board_final);
+			playerWin = runGame(playerFirst, numMoves, boardFinal);
 
 
 			// write to a file with all game details
 			if (playerFirst == 1) { winner = playerName; } else { winner = "Computer"; }
-			gameLog(playerName, winner, num_moves, board_final); // add other two once game play portion finished
+			gameLog(playerName, winner, numMoves, boardFinal); // add other two once game play portion finished
 
 			// display win vs loss vs tie message (0 = loss, 1 = win, 2 = tie)
 			if(playerWin == 0) {
@@ -87,7 +75,7 @@ int main() {
 	return 0;
 }
 
-int run_game(bool playerFirst, int& moveCount, Board& final) {
+int runGame(bool playerFirst, int& moveCount, Board& final) {
 	Board mainBoard;
 	Bot bot;
 	bool gameOver = false;
