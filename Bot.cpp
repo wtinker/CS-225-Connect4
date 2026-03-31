@@ -96,8 +96,8 @@ int Bot::firstMove() {
 	 * Return: the column index of the first move for the bot
 	 * Description: Determine a random number for the first move of the bot
 	 */
-	int first_move = rand() % COLUMNS;
-	return first_move;
+	int firstMove = rand() % COLUMNS;
+	return firstMove;
 }
 
 Bot::Bot() {
