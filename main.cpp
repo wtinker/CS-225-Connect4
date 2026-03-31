@@ -72,11 +72,11 @@ int main() {
 			cin >> ifPlay;
 		}
 	} else if (inTesting) {
-		Board_Tester boardTester;
-		boardTester.full_board_test();
+		BoardTester boardTester;
+		boardTester.fullBoardTest();
 
-		Bot_Tester botTester;
-		botTester.test_first_move();
+		BotTester botTester;
+		botTester.testFirstMove();
 
 		int testBoard[ROWS][COLUMNS] = {
 			{0, 0, 0, 0, 0, 0, 0},
@@ -85,14 +85,14 @@ int main() {
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 2, 0, 0, 0},
 			{0, 0, 0, 1, 1, 0, 0} };
-		botTester.load_board(testBoard);
-		botTester.disp_board();
+		botTester.loadBoard(testBoard);
+		botTester.dispBoard();
 
-		//botTester.random_board(3);
-		//botTester.disp_board();
-		botTester.test_calculate_weights();
-		botTester.disp_board();
-		botTester.test_get_move();
+		//botTester.randomBoard(3);
+		//botTester.dispBoard();
+		botTester.testCalculateWeights();
+		botTester.dispBoard();
+		botTester.testGetMove();
 	}
 	else {
 		cout << "Sounds good! I'll be here if you change your mind!" << endl;
@@ -114,7 +114,7 @@ int runGame(bool playerFirst, int& moveCount, Board& final) {
 
 	//bot first move if thats needed
 	if (!playerFirst) {
-		mainBoard.drop_piece(bot.first_move(), 2);
+		mainBoard.dropPiece(bot.firstMove(), 2);
 	}
 
 	//main game loop
@@ -146,35 +146,35 @@ int runGame(bool playerFirst, int& moveCount, Board& final) {
 		playerMove--;
 		moveCount++;
 		try {
-			mainBoard.drop_piece(playerMove, 1);
+			mainBoard.dropPiece(playerMove, 1);
 		}
 		catch (std::out_of_range& e) {
 			cout << "Column is full. Please choose another column." << endl;
 			continue;
 		}
 		//check win/loss/tie
-		if (mainBoard.check_player_win()) {
+		if (mainBoard.checkPlayerWin()) {
 			result = 1;
 			gameOver = true;
 			final = mainBoard;
 			continue;
 		}
-		else if (mainBoard.check_full()) {
+		else if (mainBoard.checkFull()) {
 			result = 2;
 			gameOver = true;
 			final = mainBoard;
 			continue;
 		}
 		//get bot move
-		mainBoard.drop_piece(bot.get_move(mainBoard), 2);
+		mainBoard.dropPiece(bot.getMove(mainBoard), 2);
 		//check win/loss/tie
-		if (mainBoard.check_bot_win()) {
+		if (mainBoard.checkBotWin()) {
 			result = 0;
 			gameOver = true;
 			final = mainBoard;
 			continue;
 		}
-		else if (mainBoard.check_full()) {
+		else if (mainBoard.checkFull()) {
 			result = 2;
 			gameOver = true;
 			final = mainBoard;

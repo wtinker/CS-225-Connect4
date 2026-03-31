@@ -2,12 +2,12 @@
 
 using namespace std;
 
-void Bot_Tester::load_board(int board[ROWS][COLUMNS]) {
+void BotTester::loadBoard(int board[ROWS][COLUMNS]) {
 	b = board;
 }
 
-void Bot_Tester::test_calculate_weights() {
-	calculate_weights(b);
+void BotTester::testCalculateWeights() {
+	calculateWeights(b);
 	cout << "Board: " << endl;
 	cout << b;
 	cout << "Weights: ";
@@ -17,17 +17,17 @@ void Bot_Tester::test_calculate_weights() {
 	cout << endl;
 }
 
-void Bot_Tester::test_get_move() {
-	int move = get_move(b);
+void BotTester::testGetMove() {
+	int move = getMove(b);
 	cout << "Board: " << endl;
 	cout << b;
 	cout << "Best move: " << move  + 1<< endl;
 }
 
-void Bot_Tester::test_first_move() {
+void BotTester::testFirstMove() {
 	int move_counts[COLUMNS] = { 0 };
 	for (int i = 0; i < 1000; i++) {
-		int move = first_move();
+		int move = firstMove();
 		move_counts[move]++;
 	}
 	cout << "First move distribution after 1000 trials:" << endl;
@@ -36,16 +36,16 @@ void Bot_Tester::test_first_move() {
 	}
 }
 
-void  Bot_Tester::random_board(int rows) {
-	b.reset_board();
+void  BotTester::randomBoard(int rows) {
+	b.resetBoard();
 	for (int i = 0; i < COLUMNS; i++) {
 		for (int j = 0; j < rows; j++) {
 			int id = rand() % 2 + 1;
-			b.drop_piece(i, id);
+			b.dropPiece(i, id);
 		}
 	}
 }
 
-void Bot_Tester::disp_board() {
+void BotTester::dispBoard() {
 	cout << b;
 }

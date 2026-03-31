@@ -7,10 +7,10 @@ class Bot {
   protected:
     int weights[COLUMNS];
 	Board tempBoard, tempBoard2;
-	void calculate_weights(Board);
+	void calculateWeights(Board);
   public:
-	int get_move(Board);
-	int first_move();
+	int getMove(Board);
+	int firstMove();
 	Bot();
 	~Bot();
 };
