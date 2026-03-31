@@ -3,10 +3,25 @@
 using namespace std;
 
 Board::Board() {
+	/*
+	 * Class: Board
+	 * Name: Board (constructor)
+	 * Input(s): none
+	 * Return: none
+	 * Description: Default constructor for the Board class. Initializes the board to be empty (0 in all spaces).
+	 */
 	resetBoard();
 }
 
 ostream& operator<<(ostream& os, const Board& b) {
+	/*
+	 * Class: Board
+	 * Name: operator<< (operator overload)
+	 * Input(s): os - the output stream to write to
+	 *		b - the board object to display
+	 * Return: the output stream with the board displayed
+	 * Description: Overloading of the insertion operator to display the board in a user-friendly format.
+	 */
 	for (int i = 0; i < ROWS; i++) {
 		os << i + 1 << " | ";
 
@@ -31,6 +46,16 @@ ostream& operator<<(ostream& os, const Board& b) {
 }
 
 void Board::dropPiece(int column, int id) {
+	/*
+	 * Class: Board
+	 * Name: dropPiece
+	 * Input(s): column - the column index where the piece should be dropped
+	 *		id - the ID of the piece to drop (1 for player, 2 for bot)
+	 * Return: void
+	 * Description: "Drops" a piece in the specified column by placing the 
+	 *		piece in the lowest available space in that column. If the column
+	 *		is full, an out_of_range exception is thrown.
+	 */
 	if (board[0][column] != 0) {
 		throw out_of_range("Column is full");
 	}
@@ -43,6 +68,13 @@ void Board::dropPiece(int column, int id) {
 }
 
 void Board::resetBoard() {
+	/*
+	 * Class: Board
+	 * Name: resetBoard
+	 * Input(s): none
+	 * Return: void
+	 * Description: Resets the board to be empty by setting all spaces to 0.
+	 */
 	for (int i = 0; i < 6; i++) {
 		for (int j = 0; j < 7; j++) {
 			board[i][j] = 0;
@@ -51,6 +83,13 @@ void Board::resetBoard() {
 }
 
 int Board::getId(int row, int column) {
+	/*
+	 * Class:
+	 * Name:
+	 * Input(s):
+	 * Return:
+	 * Description:
+	 */
 	if (row < 0 || row >= ROWS || column < 0 || column >= COLUMNS) {
 		throw out_of_range("Row or column index is out of bounds");
 	}
