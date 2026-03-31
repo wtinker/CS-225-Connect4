@@ -4,7 +4,7 @@
 class Bot_Tester : private Bot {
   private:
 	Board b;
-public:
+  public:
 	void load_board(int board[ROWS][COLUMNS]);
 	void test_calculate_weights();
 	void test_get_move();
