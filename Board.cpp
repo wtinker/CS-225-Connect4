@@ -84,11 +84,14 @@ void Board::resetBoard() {
 
 int Board::getId(int row, int column) {
 	/*
-	 * Class:
-	 * Name:
-	 * Input(s):
-	 * Return:
-	 * Description:
+	 * Class: Board
+	 * Name: getId
+	 * Input(s): row - the row index of the space to check
+	 *		column - the column index of the space to check
+	 * Return: the ID of the piece at the specified location (0 for empty, 1 for player, 2 for bot)
+	 * Description: Returns the ID of the piece at the specified location
+	 *		on the board. Throws an out_of_range exception if the specified
+	 *		location is outside the bounds of the board.
 	 */
 	if (row < 0 || row >= ROWS || column < 0 || column >= COLUMNS) {
 		throw out_of_range("Row or column index is out of bounds");
@@ -97,6 +100,15 @@ int Board::getId(int row, int column) {
 }
 
 bool Board::checkFull() {
+	/*
+	 * Class: Board
+	 * Name: checkFull
+	 * Input(s): none
+	 * Return: true if the board is full (no empty spaces), false otherwise
+	 * Description: Checks if the board is full by iterating through all spaces
+	 *		and checking for any empty spaces (0). If an empty space is found, 
+	 *		returns false. Otherwise, if no empty spaces are found, returns true.
+	 */
 	for (int i = 0; i < ROWS; i++) {
 		for (int j = 0; j < COLUMNS; j++) {
 			if (board[i][j] == 0) {
@@ -108,6 +120,17 @@ bool Board::checkFull() {
 }
 
 int Board::checkRight(int id, int row, int column) {
+	/*
+	 * Class: Board
+	 * Name: checkRight
+	 * Input(s): id - the ID of the piece to check for connections
+	 *		row - the row index of the starting piece
+	 *		column - the column index of the starting piece
+	 * Return: the number of connected pieces with the same ID in the specified 
+	 *		direction, including the starting piece
+	 * Description: Uses recursion to check how many pieces with the given ID
+	 *		are connected to the piece in the given direction.
+	 */
 	try {
 		if (this->getId(row, column) != id) {
 			return 0;
@@ -123,6 +146,17 @@ int Board::checkRight(int id, int row, int column) {
 }
 
 int Board::checkLeft(int id, int row, int column) {
+	/*
+	 * Class: Board
+	 * Name: checkLeft
+	 * Input(s): id - the ID of the piece to check for connections
+	 *		row - the row index of the starting piece
+	 *		column - the column index of the starting piece
+	 * Return: the number of connected pieces with the same ID in the specified
+	 *		direction, including the starting piece
+	 * Description: Uses recursion to check how many pieces with the given ID
+	 *		are connected to the piece in the given direction.
+	 */
 	try {
 		if (this->getId(row, column) != id) {
 			return 0;
@@ -138,6 +172,17 @@ int Board::checkLeft(int id, int row, int column) {
 }
 
 int Board::checkDown(int id, int row, int column) {
+	/*
+	 * Class: Board
+	 * Name: checkDown
+	 * Input(s): id - the ID of the piece to check for connections
+	 *		row - the row index of the starting piece
+	 *		column - the column index of the starting piece
+	 * Return: the number of connected pieces with the same ID in the specified
+	 *		direction, including the starting piece
+	 * Description: Uses recursion to check how many pieces with the given ID
+	 *		are connected to the piece in the given direction.
+	 */
 	try {
 		if (this->getId(row, column) != id) {
 			return 0;
@@ -153,6 +198,17 @@ int Board::checkDown(int id, int row, int column) {
 }
 
 int Board::checkUp(int id, int row, int column) {
+	/*
+	 * Class: Board
+	 * Name: checkUp
+	 * Input(s): id - the ID of the piece to check for connections
+	 *		row - the row index of the starting piece
+	 *		column - the column index of the starting piece
+	 * Return: the number of connected pieces with the same ID in the specified
+	 *		direction, including the starting piece
+	 * Description: Uses recursion to check how many pieces with the given ID
+	 *		are connected to the piece in the given direction.
+	 */
 	try {
 		if (this->getId(row, column) != id) {
 			return 0;
@@ -168,6 +224,17 @@ int Board::checkUp(int id, int row, int column) {
 }
 
 int Board::checkUpperLeft(int id, int row, int column) {
+	/*
+	 * Class: Board
+	 * Name: checkUpperLeft
+	 * Input(s): id - the ID of the piece to check for connections
+	 *		row - the row index of the starting piece
+	 *		column - the column index of the starting piece
+	 * Return: the number of connected pieces with the same ID in the specified
+	 *		direction, including the starting piece
+	 * Description: Uses recursion to check how many pieces with the given ID
+	 *		are connected to the piece in the given direction.
+	 */
 	try {
 		if (this->getId(row, column) != id) {
 			return 0;
@@ -183,6 +250,17 @@ int Board::checkUpperLeft(int id, int row, int column) {
 }
 
 int Board::checkUpperRight(int id, int row, int column) {
+	/*
+	 * Class: Board
+	 * Name: checkUpperRight
+	 * Input(s): id - the ID of the piece to check for connections
+	 *		row - the row index of the starting piece
+	 *		column - the column index of the starting piece
+	 * Return: the number of connected pieces with the same ID in the specified
+	 *		direction, including the starting piece
+	 * Description: Uses recursion to check how many pieces with the given ID
+	 *		are connected to the piece in the given direction.
+	 */
 	try {
 		if (this->getId(row, column) != id) {
 			return 0;
@@ -198,6 +276,17 @@ int Board::checkUpperRight(int id, int row, int column) {
 }
 
 int Board::checkLowerLeft(int id, int row, int column) {
+	/*
+	 * Class: Board
+	 * Name: checkLowerLeft
+	 * Input(s): id - the ID of the piece to check for connections
+	 *		row - the row index of the starting piece
+	 *		column - the column index of the starting piece
+	 * Return: the number of connected pieces with the same ID in the specified
+	 *		direction, including the starting piece
+	 * Description: Uses recursion to check how many pieces with the given ID
+	 *		are connected to the piece in the given direction.
+	 */
 	try {
 		if (this->getId(row, column) != id) {
 			return 0;
@@ -213,6 +302,17 @@ int Board::checkLowerLeft(int id, int row, int column) {
 }
 
 int Board::checkLowerRight(int id, int row, int column) {
+	/*
+	 * Class: Board
+	 * Name: checkLowerRight
+	 * Input(s): id - the ID of the piece to check for connections
+	 *		row - the row index of the starting piece
+	 *		column - the column index of the starting piece
+	 * Return: the number of connected pieces with the same ID in the specified
+	 *		direction, including the starting piece
+	 * Description: Uses recursion to check how many pieces with the given ID
+	 *		are connected to the piece in the given direction.
+	 */
 	try {
 		if (this->getId(row, column) != id) {
 			return 0;
@@ -228,6 +328,17 @@ int Board::checkLowerRight(int id, int row, int column) {
 }
 
 bool Board::checkPlayerWin() {
+	/*
+	 * Class: Board
+	 * Name: checkPlayerWin
+	 * Input(s): none
+	 * Return: true if the player has won (4 pieces in a row), false otherwise
+	 * Description: Iterates through all spaces on the board and uses the check
+	 *		functions to determine if there are 4 pieces with the player's ID (1) 
+	 *		in a row in any direction. If such a connection exists, returns true.
+	 *		Otherwise, returns false. 1 is subtracted from the total connections
+	 *		to avoid counting the currently selected piece twice.
+	 */
 	for (int i = 0; i < ROWS; i++) {
 		for (int j = 0; j < COLUMNS; j++) {
 			if (board[i][j] == 1) {
@@ -244,6 +355,17 @@ bool Board::checkPlayerWin() {
 }
 
 bool Board::checkBotWin() {
+	/*
+	 * Class: Board
+	 * Name: checkBotWin
+	 * Input(s): none
+	 * Return: true if the bot has won (4 pieces in a row), false otherwise
+	 * Description: Iterates through all spaces on the board and uses the check
+	 *		functions to determine if there are 4 pieces with the bot's ID (2)
+	 *		in a row in any direction. If such a connection exists, returns true.
+	 *		Otherwise, returns false. 1 is subtracted from the total connections
+	 *		to avoid counting the currently selected piece twice.
+	 */
 	for (int i = 0; i < ROWS; i++) {
 		for (int j = 0; j < COLUMNS; j++) {
 			if (board[i][j] == 2) {
@@ -260,6 +382,16 @@ bool Board::checkBotWin() {
 }
 
 int Board::checkAllConnections(int id) {
+	/*
+	 * Class: Board
+	 * Name: checkAllConnections
+	 * Input(s): id - the ID of the piece to check for connections
+	 * Return: the number of piece connections with the same ID
+	 * Description: Iterates through all spaces on the board and uses the check
+	 *		functions to count the total number of connections for pieces with
+	 *		the given ID. 8 is subtracted from the total to avoid counting the
+	 *		currently selected piece.
+	 */
 	int total = 0;
 	for (int i = 0; i < ROWS; i++) {
 		for (int j = 0; j < COLUMNS; j++) {
@@ -275,6 +407,18 @@ int Board::checkAllConnections(int id) {
 }
 
 int Board::checkHighestConnection(int id) {
+	/*
+	 * Class: Board
+	 * Name: checkHighestConnection
+	 * Input(s): id - the ID of the piece to check for connections
+	 * Return: the highest number of piece connections with the same ID
+	 * Description: Iterates through all spaces on the board and uses the check
+	 *		functions to count the total number of connections for pieces with
+	 *		the given ID. 8 is subtracted from the total to avoid counting the
+	 *		currently selected piece. If the total number of connections for a
+	 *		piece is higher than the current highest connection, the highest
+	 *		connection is updated accordingly.
+	 */
 	int highest = 0;
 	for (int i = 0; i < ROWS; i++) {
 		for (int j = 0; j < COLUMNS; j++) {
@@ -293,13 +437,28 @@ int Board::checkHighestConnection(int id) {
 }
 
 Board::~Board() {
-	// No dynamic memory to free
+	/*
+	 * Class: Board
+	 * Name: ~Board (destructor)
+	 * Input(s): none
+	 * Return: none
+	 * Description: Destructor for the Board class, no dynamic memory to free so it is empty.
+	 *		Exists purely because required.
+	 */
 }
 
-Board Board::operator=(int new_board[ROWS][COLUMNS]) {
+Board Board::operator=(int newBoard[ROWS][COLUMNS]) {
+	/*
+	 * Class: Board
+	 * Name: operator= (operator overload)
+	 * Input(s): newBoard - a 2D array representing the new state of the board
+	 * Return: a reference to the updated board object
+	 * Description: Overloading of the assignment operator to allow assigning a 2D array
+	 *		to the board to set a custom board state for testing.
+	 */
 	for (int i = 0; i < ROWS; i++) {
 		for (int j = 0; j < COLUMNS; j++) {
-			this->board[i][j] = new_board[i][j];
+			this->board[i][j] = newBoard[i][j];
 		}
 	}
 	return *this;
