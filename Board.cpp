@@ -3,10 +3,25 @@
 using namespace std;
 
 Board::Board() {
-	reset_board();
+	/*
+	 * Class: Board
+	 * Name: Board (constructor)
+	 * Input(s): none
+	 * Return: none
+	 * Description: Default constructor for the Board class. Initializes the board to be empty (0 in all spaces).
+	 */
+	resetBoard();
 }
 
 ostream& operator<<(ostream& os, const Board& b) {
+	/*
+	 * Class: Board
+	 * Name: operator<< (operator overload)
+	 * Input(s): os - the output stream to write to
+	 *		b - the board object to display
+	 * Return: the output stream with the board displayed
+	 * Description: Overloading of the insertion operator to display the board in a user-friendly format.
+	 */
 	for (int i = 0; i < ROWS; i++) {
 		os << i + 1 << " | ";
 
@@ -30,7 +45,17 @@ ostream& operator<<(ostream& os, const Board& b) {
 	return os;
 }
 
-void Board::drop_piece(int column, int id) {
+void Board::dropPiece(int column, int id) {
+	/*
+	 * Class: Board
+	 * Name: dropPiece
+	 * Input(s): column - the column index where the piece should be dropped
+	 *		id - the ID of the piece to drop (1 for player, 2 for bot)
+	 * Return: void
+	 * Description: "Drops" a piece in the specified column by placing the 
+	 *		piece in the lowest available space in that column. If the column
+	 *		is full, an out_of_range exception is thrown.
+	 */
 	if (board[0][column] != 0) {
 		throw out_of_range("Column is full");
 	}
@@ -42,7 +67,14 @@ void Board::drop_piece(int column, int id) {
 	}
 }
 
-void Board::reset_board() {
+void Board::resetBoard() {
+	/*
+	 * Class: Board
+	 * Name: resetBoard
+	 * Input(s): none
+	 * Return: void
+	 * Description: Resets the board to be empty by setting all spaces to 0.
+	 */
 	for (int i = 0; i < 6; i++) {
 		for (int j = 0; j < 7; j++) {
 			board[i][j] = 0;
@@ -50,14 +82,21 @@ void Board::reset_board() {
 	}
 }
 
-int Board::get_id(int row, int column) {
+int Board::getId(int row, int column) {
+	/*
+	 * Class:
+	 * Name:
+	 * Input(s):
+	 * Return:
+	 * Description:
+	 */
 	if (row < 0 || row >= ROWS || column < 0 || column >= COLUMNS) {
 		throw out_of_range("Row or column index is out of bounds");
 	}
 	return board[row][column];
 }
 
-bool Board::check_full() {
+bool Board::checkFull() {
 	for (int i = 0; i < ROWS; i++) {
 		for (int j = 0; j < COLUMNS; j++) {
 			if (board[i][j] == 0) {
@@ -68,13 +107,13 @@ bool Board::check_full() {
 	return true;
 }
 
-int Board::check_right(int id, int row, int column) {
+int Board::checkRight(int id, int row, int column) {
 	try {
-		if (this->get_id(row, column) != id) {
+		if (this->getId(row, column) != id) {
 			return 0;
 		}
 		else {
-			return 1 + check_right(id, row, column + 1);
+			return 1 + checkRight(id, row, column + 1);
 		}
 	}
 	catch (out_of_range& e) {
@@ -83,13 +122,13 @@ int Board::check_right(int id, int row, int column) {
 	}
 }
 
-int Board::check_left(int id, int row, int column) {
+int Board::checkLeft(int id, int row, int column) {
 	try {
-		if (this->get_id(row, column) != id) {
+		if (this->getId(row, column) != id) {
 			return 0;
 		}
 		else {
-			return 1 + check_left(id, row, column - 1);
+			return 1 + checkLeft(id, row, column - 1);
 		}
 	}
 	catch (out_of_range& e) {
@@ -98,13 +137,13 @@ int Board::check_left(int id, int row, int column) {
 	}
 }
 
-int Board::check_down(int id, int row, int column) {
+int Board::checkDown(int id, int row, int column) {
 	try {
-		if (this->get_id(row, column) != id) {
+		if (this->getId(row, column) != id) {
 			return 0;
 		}
 		else {
-			return 1 + check_down(id, row + 1, column);
+			return 1 + checkDown(id, row + 1, column);
 		}
 	}
 	catch (out_of_range& e) {
@@ -113,13 +152,13 @@ int Board::check_down(int id, int row, int column) {
 	}
 }
 
-int Board::check_up(int id, int row, int column) {
+int Board::checkUp(int id, int row, int column) {
 	try {
-		if (this->get_id(row, column) != id) {
+		if (this->getId(row, column) != id) {
 			return 0;
 		}
 		else {
-			return 1 + check_up(id, row - 1, column);
+			return 1 + checkUp(id, row - 1, column);
 		}
 	}
 	catch (out_of_range& e) {
@@ -128,13 +167,13 @@ int Board::check_up(int id, int row, int column) {
 	}
 }
 
-int Board::check_upper_left(int id, int row, int column) {
+int Board::checkUpperLeft(int id, int row, int column) {
 	try {
-		if (this->get_id(row, column) != id) {
+		if (this->getId(row, column) != id) {
 			return 0;
 		}
 		else {
-			return 1 + check_upper_left(id, row - 1, column - 1);
+			return 1 + checkUpperLeft(id, row - 1, column - 1);
 		}
 	}
 	catch (out_of_range& e) {
@@ -143,13 +182,13 @@ int Board::check_upper_left(int id, int row, int column) {
 	}
 }
 
-int Board::check_upper_right(int id, int row, int column) {
+int Board::checkUpperRight(int id, int row, int column) {
 	try {
-		if (this->get_id(row, column) != id) {
+		if (this->getId(row, column) != id) {
 			return 0;
 		}
 		else {
-			return 1 + check_upper_right(id, row - 1, column + 1);
+			return 1 + checkUpperRight(id, row - 1, column + 1);
 		}
 	}
 	catch (out_of_range& e) {
@@ -158,13 +197,13 @@ int Board::check_upper_right(int id, int row, int column) {
 	}
 }
 
-int Board::check_lower_left(int id, int row, int column) {
+int Board::checkLowerLeft(int id, int row, int column) {
 	try {
-		if (this->get_id(row, column) != id) {
+		if (this->getId(row, column) != id) {
 			return 0;
 		}
 		else {
-			return 1 + check_lower_left(id, row + 1, column - 1);
+			return 1 + checkLowerLeft(id, row + 1, column - 1);
 		}
 	}
 	catch (out_of_range& e) {
@@ -173,13 +212,13 @@ int Board::check_lower_left(int id, int row, int column) {
 	}
 }
 
-int Board::check_lower_right(int id, int row, int column) {
+int Board::checkLowerRight(int id, int row, int column) {
 	try {
-		if (this->get_id(row, column) != id) {
+		if (this->getId(row, column) != id) {
 			return 0;
 		}
 		else {
-			return 1 + check_lower_right(id, row + 1, column + 1);
+			return 1 + checkLowerRight(id, row + 1, column + 1);
 		}
 	}
 	catch (out_of_range& e) {
@@ -188,14 +227,14 @@ int Board::check_lower_right(int id, int row, int column) {
 	}
 }
 
-bool Board::check_player_win() {
+bool Board::checkPlayerWin() {
 	for (int i = 0; i < ROWS; i++) {
 		for (int j = 0; j < COLUMNS; j++) {
 			if (board[i][j] == 1) {
-				if (check_right(1, i, j) + check_left(1, i, j) - 1 >= 4 ||
-					check_down(1, i, j) + check_up(1, i, j) - 1 >= 4 ||
-					check_upper_left(1, i, j) + check_lower_right(1, i, j) - 1 >= 4 ||
-					check_upper_right(1, i, j) + check_lower_left(1, i, j) - 1 >= 4) {
+				if (checkRight(1, i, j) + checkLeft(1, i, j) - 1 >= 4 ||
+					checkDown(1, i, j) + checkUp(1, i, j) - 1 >= 4 ||
+					checkUpperLeft(1, i, j) + checkLowerRight(1, i, j) - 1 >= 4 ||
+					checkUpperRight(1, i, j) + checkLowerLeft(1, i, j) - 1 >= 4) {
 					return true;
 				}
 			}
@@ -204,14 +243,14 @@ bool Board::check_player_win() {
 	return false;
 }
 
-bool Board::check_bot_win() {
+bool Board::checkBotWin() {
 	for (int i = 0; i < ROWS; i++) {
 		for (int j = 0; j < COLUMNS; j++) {
 			if (board[i][j] == 2) {
-				if (check_right(2, i, j) + check_left(2, i, j) - 1 >= 4 ||
-					check_down(2, i, j) + check_up(2, i, j) - 1 >= 4 ||
-					check_upper_left(2, i, j) + check_lower_right(2, i, j) - 1 >= 4 ||
-					check_upper_right(2, i, j) + check_lower_left(2, i, j) - 1 >= 4) {
+				if (checkRight(2, i, j) + checkLeft(2, i, j) - 1 >= 4 ||
+					checkDown(2, i, j) + checkUp(2, i, j) - 1 >= 4 ||
+					checkUpperLeft(2, i, j) + checkLowerRight(2, i, j) - 1 >= 4 ||
+					checkUpperRight(2, i, j) + checkLowerLeft(2, i, j) - 1 >= 4) {
 					return true;
 				}
 			}
@@ -220,30 +259,30 @@ bool Board::check_bot_win() {
 	return false;
 }
 
-int Board::check_all_connections(int id) {
+int Board::checkAllConnections(int id) {
 	int total = 0;
 	for (int i = 0; i < ROWS; i++) {
 		for (int j = 0; j < COLUMNS; j++) {
 			if (board[i][j] == id) {
-				total += check_right(id, i, j) + check_left(id, i, j)
-					+ check_down(id, i, j) + check_up(id, i, j)
-					+ check_upper_left(id, i, j) + check_upper_right(id, i, j)
-					+ check_lower_left(id, i, j) + check_lower_right(id, i, j) - 8;
+				total += checkRight(id, i, j) + checkLeft(id, i, j)
+					+ checkDown(id, i, j) + checkUp(id, i, j)
+					+ checkUpperLeft(id, i, j) + checkUpperRight(id, i, j)
+					+ checkLowerLeft(id, i, j) + checkLowerRight(id, i, j) - 8;
 			}
 		}
 	}
 	return total;
 }
 
-int Board::check_highest_connection(int id) {
+int Board::checkHighestConnection(int id) {
 	int highest = 0;
 	for (int i = 0; i < ROWS; i++) {
 		for (int j = 0; j < COLUMNS; j++) {
 			if (board[i][j] == id) {
-				int connection_length = check_right(id, i, j) + check_left(id, i, j)
-					+ check_down(id, i, j) + check_up(id, i, j)
-					+ check_upper_left(id, i, j) + check_upper_right(id, i, j)
-					+ check_lower_left(id, i, j) + check_lower_right(id, i, j) - 8;
+				int connection_length = checkRight(id, i, j) + checkLeft(id, i, j)
+					+ checkDown(id, i, j) + checkUp(id, i, j)
+					+ checkUpperLeft(id, i, j) + checkUpperRight(id, i, j)
+					+ checkLowerLeft(id, i, j) + checkLowerRight(id, i, j) - 8;
 				if (connection_length > highest) {
 					highest = connection_length;
 				}

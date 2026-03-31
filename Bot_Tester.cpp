@@ -2,12 +2,29 @@
 
 using namespace std;
 
-void Bot_Tester::load_board(int board[ROWS][COLUMNS]) {
+void BotTester::loadBoard(int board[ROWS][COLUMNS]) {
+	/*
+	 * Class: BotTester
+	 * Name: loadBoard
+	 * Input(s): board - a 2D array representing the state of the board
+	 * Return: void
+	 * Description: Loads a custom board state to test certain cases for bot behavior.
+	 *		Makes use of the overloaded assignment operator in the Board class to assign 
+	 *		the 2D array to the board object.
+	 */
 	b = board;
 }
 
-void Bot_Tester::test_calculate_weights() {
-	calculate_weights(b);
+void BotTester::testCalculateWeights() {
+	/*
+	 * Class: BotTester
+	 * Name: testCalculateWeights
+	 * Input(s): none
+	 * Return: void
+	 * Description: Tests the calculateWeights function with the currently loaded board.
+	 *		Then, displays the board and the calculated weights for each column.
+	 */
+	calculateWeights(b);
 	cout << "Board: " << endl;
 	cout << b;
 	cout << "Weights: ";
@@ -17,17 +34,33 @@ void Bot_Tester::test_calculate_weights() {
 	cout << endl;
 }
 
-void Bot_Tester::test_get_move() {
-	int move = get_move(b);
+void BotTester::testGetMove() {
+	/*
+	 * Class: BotTester
+	 * Name: testGetMove
+	 * Input(s): none
+	 * Return: void
+	 * Description: Tests the getMove function with the currently loaded board. Then,
+	 *		displays the board and the calculated best move for the bot.
+	 */
+	int move = getMove(b);
 	cout << "Board: " << endl;
 	cout << b;
 	cout << "Best move: " << move  + 1<< endl;
 }
 
-void Bot_Tester::test_first_move() {
+void BotTester::testFirstMove() {
+	/*
+	 * Class: BotTester
+	 * Name: testFirstMove
+	 * Input(s): none
+	 * Return: void
+	 * Description: Runs the firstMove function 1000 times and counts the number each
+	 *		column is returned, then displays the distribution of first moves.
+	 */
 	int move_counts[COLUMNS] = { 0 };
 	for (int i = 0; i < 1000; i++) {
-		int move = first_move();
+		int move = firstMove();
 		move_counts[move]++;
 	}
 	cout << "First move distribution after 1000 trials:" << endl;
@@ -36,16 +69,30 @@ void Bot_Tester::test_first_move() {
 	}
 }
 
-void  Bot_Tester::random_board(int rows) {
-	b.reset_board();
+void  BotTester::randomBoard(int rows) {
+	/*
+	 * Class: BotTester
+	 * Name: randomBoard
+	 * Input(s): rows - the number of rows to fill with random pieces
+	 * Return: void
+	 * Description: Fills the board with random pieces up to the specified number of rows.
+	 */
+	b.resetBoard();
 	for (int i = 0; i < COLUMNS; i++) {
 		for (int j = 0; j < rows; j++) {
 			int id = rand() % 2 + 1;
-			b.drop_piece(i, id);
+			b.dropPiece(i, id);
 		}
 	}
 }
 
-void Bot_Tester::disp_board() {
+void BotTester::dispBoard() {
+	/*
+	 * Class: BotTester
+	 * Name: dispBoard
+	 * Input(s): none
+	 * Return: void
+	 * Description: Displays the current state of the board. 
+	 */
 	cout << b;
 }

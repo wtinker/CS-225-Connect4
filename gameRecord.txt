@@ -319,20 +319,20 @@ Final Board:
 ====== End of Game Info ======
 
 ===== Connect4 Game Info =====
-Date: Tue Mar 31 11:04:36 2026
+Date: Tue Mar 31 12:16:08 2026
 
-Player One: cooper
+Player One: Will
 Player Two: Computer
-Winner: cooper
-Total Moves: 6
+Winner: Computer
+Total Moves: 11
 Final Board: 
 
 1 | * * * * * * * |
-2 | * * * * * * * |
-3 | * X * * * * * |
-4 | * X * * O * * |
-5 | O X * * O * * |
-6 | X X O O O X * |
+2 | * * O * * * * |
+3 | * X X * O O * |
+4 | * O O X X X * |
+5 | * O O O X X X |
+6 | X O O O X X X |
 +-----------------+
     1 2 3 4 5 6 7 
 

@@ -21,13 +21,13 @@ void gameLog(string p1, string winner, int numMoves, Board boardFinal) {
         fileLog << i + 1 << " | ";
 
         for (int j = 0; j < COLUMNS; j++) {
-            if (boardFinal.get_id(i,j) == 0) {
+            if (boardFinal.getId(i,j) == 0) {
                 fileLog << "* ";
             }
-            else if (boardFinal.get_id(i,j) == 1) {
+            else if (boardFinal.getId(i,j) == 1) {
                 fileLog << "O ";
             }
-            else if (boardFinal.get_id(i,j) == 2) {
+            else if (boardFinal.getId(i,j) == 2) {
                 fileLog << "X ";
             }
         }

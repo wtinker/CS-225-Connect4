@@ -4,36 +4,36 @@
 
 using namespace std;
 
-void Board_Tester::test_board_initialization() {
+void BoardTester::testBoardInitialization() {
 	cout << "Board initialization test:" << endl;
 	cout << "Creating board...:" << endl;
-	this->reset_board();
+	this->resetBoard();
 	cout << "Displaying board...:" << endl;
 	cout << *this;
 }
-void Board_Tester::test_drop_piece() {
+void BoardTester::testDropPiece() {
 	cout << "Board drop piece test:" << endl;
-	this->reset_board();
+	this->resetBoard();
 	for (int i = 0; i < COLUMNS; i++) {
 		cout << "Dropping player piece in column " << i << endl;
-		this->drop_piece(i, 1);
+		this->dropPiece(i, 1);
 		cout << *this;
 	}
 	for (int i = 0; i < COLUMNS; i++) {
 		cout << "Dropping bot piece in column " << i << endl;
-		this->drop_piece(i, 2);
+		this->dropPiece(i, 2);
 		cout << *this;
 	}
 }
 
-void Board_Tester::test_player_win() {
+void BoardTester::testPlayerWin() {
 	cout << "Player win test:" << endl;
-	this->reset_board();
+	this->resetBoard();
 	for (int i = 0; i < 4; i++) {
-		this->drop_piece(i, 1);
+		this->dropPiece(i, 1);
 	}
 	cout << *this;
-	if (this->check_player_win()) {
+	if (this->checkPlayerWin()) {
 		cout << "Player win detected successfully!" << endl;
 	}
 	else {
@@ -41,14 +41,14 @@ void Board_Tester::test_player_win() {
 	}
 }
 
-void Board_Tester::test_bot_win() {
+void BoardTester::testBotWin() {
 	cout << "Bot win test:" << endl;
-	this->reset_board();
+	this->resetBoard();
 	for (int i = 0; i < 4; i++) {
-		this->drop_piece(i, 2);
+		this->dropPiece(i, 2);
 	}
 	cout << *this;
-	if (this->check_bot_win()) {
+	if (this->checkBotWin()) {
 		cout << "Bot win detected successfully!" << endl;
 	}
 	else {
@@ -56,36 +56,36 @@ void Board_Tester::test_bot_win() {
 	}
 }
 
-void Board_Tester::test_checks() {
+void BoardTester::testChecks() {
 	srand(time(NULL));
 	cout << "Check functions test:" << endl;
-	this->reset_board();
+	this->resetBoard();
 	for (int i = 0; i < COLUMNS; i++) {
 		for (int j = 0; j < ROWS; j++) {
 			int id = rand() % 2 + 1;
-			this->drop_piece(i, id);
+			this->dropPiece(i, id);
 		}
 	}
 	cout << *this;
-	int pieceID = this->get_id(2, 3);
+	int pieceID = this->getId(2, 3);
 	cout << "Calculating checks for center piece ID "<< pieceID << endl;
-	cout << "Right check: " << this->check_right(pieceID, 2, 3) << endl;
-	cout << "Left check: " << this->check_left(pieceID, 2, 3) << endl;
-	cout << "Down check: " << this->check_down(pieceID, 2, 3) << endl;
-	cout << "Up check: " << this->check_up(pieceID, 2, 3) << endl;
-	cout << "Upper left check: " << this->check_upper_left(pieceID, 2, 3) << endl;
-	cout << "Upper right check: " << this->check_upper_right(pieceID, 2, 3) << endl;
-	cout << "Lower left check: " << this->check_lower_left(pieceID, 2, 3) << endl;
-	cout << "Lower right check: " << this->check_lower_right(pieceID, 2, 3) << endl;
+	cout << "Right check: " << this->checkRight(pieceID, 2, 3) << endl;
+	cout << "Left check: " << this->checkLeft(pieceID, 2, 3) << endl;
+	cout << "Down check: " << this->checkDown(pieceID, 2, 3) << endl;
+	cout << "Up check: " << this->checkUp(pieceID, 2, 3) << endl;
+	cout << "Upper left check: " << this->checkUpperLeft(pieceID, 2, 3) << endl;
+	cout << "Upper right check: " << this->checkUpperRight(pieceID, 2, 3) << endl;
+	cout << "Lower left check: " << this->checkLowerLeft(pieceID, 2, 3) << endl;
+	cout << "Lower right check: " << this->checkLowerRight(pieceID, 2, 3) << endl;
 }
 
-void Board_Tester::full_board_test() {
+void BoardTester::fullBoardTest() {
 	cout << "Full board test:" << endl;
-	this->test_board_initialization();
-	this->test_drop_piece();
-	this->test_player_win();
-	this->test_bot_win();
-	this->test_checks();
+	this->testBoardInitialization();
+	this->testDropPiece();
+	this->testPlayerWin();
+	this->testBotWin();
+	this->testChecks();
 }
 
 /* Old board test code
