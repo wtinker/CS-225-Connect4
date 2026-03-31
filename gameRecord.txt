@@ -198,3 +198,123 @@ Final Board:
 
 ====== End of Game Info ======
 
+===== Connect4 Game Info =====
+Date: Mon Mar 30 11:00:33 2026
+
+Player One: coop
+Player Two: Computer
+Winner: Computer
+Total Moves: 5
+Final Board: 
+
+1 | * * * * * * * |
+2 | * * * * * * * |
+3 | * * * * * * * |
+4 | * O O O * * * |
+5 | X X X X * * * |
+6 | O O X X * * * |
++-----------------+
+    1 2 3 4 5 6 7 
+
+====== End of Game Info ======
+
+===== Connect4 Game Info =====
+Date: Mon Mar 30 11:29:11 2026
+
+Player One: cooper
+Player Two: Computer
+Winner: cooper
+Total Moves: 39
+Final Board: 
+
+1 | O * * * * * * |
+2 | * * * * * * * |
+3 | O * X * * * * |
+4 | * * X * * * * |
+5 | O X X * * * * |
+6 | X O X * * * * |
++-----------------+
+    1 2 3 4 5 6 7 
+
+====== End of Game Info ======
+
+===== Connect4 Game Info =====
+Date: Mon Mar 30 11:30:27 2026
+
+Player One: cooper
+Player Two: Computer
+Winner: Computer
+Total Moves: 24
+Final Board: 
+
+1 | * * * * * * * |
+2 | * * * * * * * |
+3 | O * * * * * * |
+4 | * * * * * * * |
+5 | * * * * X * * |
+6 | O O O X X X X |
++-----------------+
+    1 2 3 4 5 6 7 
+
+====== End of Game Info ======
+
+===== Connect4 Game Info =====
+Date: Mon Mar 30 11:33:53 2026
+
+Player One: cooper
+Player Two: Computer
+Winner: Computer
+Total Moves: 3
+Final Board: 
+
+1 | * * * * * * * |
+2 | * * * * * * * |
+3 | * * * * * * * |
+4 | * * * * * * * |
+5 | O * O * * * * |
+6 | O X X X X * * |
++-----------------+
+    1 2 3 4 5 6 7 
+
+====== End of Game Info ======
+
+===== Connect4 Game Info =====
+Date: Mon Mar 30 11:38:29 2026
+
+Player One: cooper
+Player Two: Computer
+Winner: cooper
+Total Moves: 5
+Final Board: 
+
+1 | * * * * * * * |
+2 | * * * * * * * |
+3 | * * * * * * * |
+4 | * * * * * * * |
+5 | X O O O * * * |
+6 | O X X X X * O |
++-----------------+
+    1 2 3 4 5 6 7 
+
+====== End of Game Info ======
+
+===== Connect4 Game Info =====
+Date: Mon Mar 30 11:39:34 2026
+
+Player One: coop
+Player Two: Computer
+Winner: Computer
+Total Moves: 3
+Final Board: 
+
+1 | * * * * * * * |
+2 | * * * * * * * |
+3 | * * * * * * * |
+4 | * * * * * * * |
+5 | O * * * * * * |
+6 | O X X X X * O |
++-----------------+
+    1 2 3 4 5 6 7 
+
+====== End of Game Info ======
+

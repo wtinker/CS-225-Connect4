@@ -1,6 +1,4 @@
-﻿  Bot_Tester.cpp
-  main.cpp
-C:\Users\willc\source\repos\wtinker\CS-225-Connect4\main.cpp(17,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\willc\source\repos\wtinker\CS-225-Connect4\main.cpp(131,29): warning C4101: 'e': unreferenced local variable
-  Generating Code...
-  Connect4.vcxproj -> C:\Users\willc\source\repos\wtinker\CS-225-Connect4\x64\Debug\Connect4.exe
+﻿  main.cpp
+C:\Users\coope\source\repos\CS-225-Connect4-final\main.cpp(17,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\coope\source\repos\CS-225-Connect4-final\main.cpp(151,29): warning C4101: 'e': unreferenced local variable
+  Connect4.vcxproj -> C:\Users\coope\source\repos\CS-225-Connect4-final\x64\Debug\Connect4.exe

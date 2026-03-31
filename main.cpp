@@ -107,6 +107,7 @@ int runGame(bool playerFirst, int& moveCount, Board& final) {
 	bool gameOver = false;
 	int result = 0;
 	int playerMove = 0;
+	bool invalid = true;
 
 	//clear moveCount
 	moveCount = 0;
@@ -121,8 +122,27 @@ int runGame(bool playerFirst, int& moveCount, Board& final) {
 		//display board
 		cout << "Current board state: " << endl << mainBoard;
 		//get player move
-		cout << "Enter column number (1-" << COLUMNS << "): ";
-		cin >> playerMove;
+		while (invalid == true) {
+			cout << "Enter column number (1-" << COLUMNS << "): ";
+			cin >> playerMove;
+
+			if (cin.fail()) {
+				cin.clear();
+				cin.ignore(1000, '\n');
+				cout << "Invalid input. Enter a number." << endl;
+			}
+			else if (playerMove < 1 || playerMove > COLUMNS) {
+				cin.clear();
+				cin.ignore(1000, '\n');
+				cout << "Out of range. Try again." << endl;
+			}
+			else {
+				cin.clear();
+				cin.ignore(1000, '\n');
+				invalid = false;
+			}
+		}
+		invalid = true;
 		playerMove--;
 		moveCount++;
 		try {
