@@ -32,8 +32,8 @@ int main() {
 	cout << "Would you like to play (yes or no)? ";
 	cin >> ifPlay;
 
-	if(ifPlay == "yes") {
-		while(ifPlay == "yes") {
+	if (ifPlay == "yes") {
+		while (ifPlay == "yes") {
 			// ask play name
 			cout << "What is your name? ";
 			cin >> playerName;
@@ -50,18 +50,22 @@ int main() {
 			}
 
 			// Game play first move to win/loss/tie
-			// I think this should be a header file to not over croud main
 			playerWin = runGame(playerFirst, numMoves, boardFinal);
 
 
 			// write to a file with all game details
 			if (playerFirst == 1) { winner = playerName; } else { winner = "Computer"; }
-			gameLog(playerName, winner, numMoves, boardFinal); // add other two once game play portion finished
+			try {
+				gameLog(playerName, winner, numMoves, boardFinal);
+			}
+			catch (string& e) {
+				cout << e << endl;
+			}
 
 			// display win vs loss vs tie message (0 = loss, 1 = win, 2 = tie)
-			if(playerWin == 0) {
+			if (playerWin == 0) {
 				cout << "You have lost. You'll get it next time." << endl;
-			} else if(playerWin == 1) { 
+			} else if (playerWin == 1) { 
 				cout << "You have WON!! Congratulations!" << endl;
 			} else {
 				cout << "You and the computer have tied. Good game." << endl;

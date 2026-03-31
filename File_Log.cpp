@@ -5,10 +5,24 @@
 using namespace std;
 
 void gameLog(string p1, string winner, int numMoves, Board boardFinal) {
+    /*
+    * Name: gameLog
+    * Input(s): 
+        - p1: Player Name
+        - winner: Who won, player or computer
+        - numMoves: How many moves back and forth made in the game. 
+        - boardFinal: The final layout of the board at either win/loss/tie.
+    * Return: void
+    * Description: Takes all the game data and appends it to our gameRecord.txt file so that 
+    * the player can go back and see how they improved overtime.
+    */
     time_t current = time(NULL);
     char* date = ctime(&current);
     
     ofstream fileLog("gameRecord.txt", ios::app);
+    if (!fileLog) {
+        throw string("Error: could not open gameRecord.txt for appending.");
+    }
 
     fileLog << "===== Connect4 Game Info =====" << endl;
     fileLog << "Date: " << date << endl;
