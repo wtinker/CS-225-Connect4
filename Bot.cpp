@@ -45,12 +45,15 @@ void Bot::calculateWeights(Board trueBoard) {
 	 *		optimizations to the speed of this function were made using continue; to skip unnecessary
 	 *		evaluations.
 	 */
+	//first layer of simluation: bot move
 	for (int i = 0; i < COLUMNS; i++) {
+		//reset weight for column i and sets tempBoard to a copy of true board
 		weights[i] = 0;
 		tempBoard = trueBoard;
+		//sets the current highest connections for bot and player, done outside of loop to optimize speed by avoiding unnecessary calls to checkHighestConnection in the inner loop
 		int botHighest = tempBoard.checkHighestConnection(2);
 		int playerHighest = tempBoard.checkHighestConnection(1);
-		//drop a bot piece in column i, if bot win, add very high weight
+		//drop a bot piece in column i, if bot win, add very high weight and continue to next column, if column is full, add very low weight and continue to next column
 		try{tempBoard.dropPiece(i, 2);}
 		catch (std::out_of_range& e) {
 			weights[i] = -1000000;
@@ -60,6 +63,7 @@ void Bot::calculateWeights(Board trueBoard) {
 			weights[i] += 1000000;
 			continue;
 		}
+		//second layer of simulation: player move
 		for (int j = 0; j < COLUMNS; j++) {
 			//drop a player piece in column j
 			// if player win, subtract high weight
