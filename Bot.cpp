@@ -86,6 +86,11 @@ void Bot::calculateWeights(Board trueBoard) {
 			}
 		}
 	}
+	weights[1] += 1;
+	weights[2] += 2;
+	weights[3] += 3;
+	weights[4] += 2;
+	weights[5] += 1;
 }
 
 int Bot::firstMove() {

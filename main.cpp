@@ -23,7 +23,7 @@ int main() {
 	Board boardFinal;
 	string winner;
 
-	bool inTesting = false;    
+	bool inTesting = true;    
 		
 	// rules/instruction
 	printInstructions();
@@ -87,8 +87,8 @@ int main() {
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0},
-			{0, 0, 0, 2, 0, 0, 0},
-			{0, 0, 0, 1, 1, 0, 0} };
+			{0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 1, 0, 0, 0} };
 		botTester.loadBoard(testBoard);
 		botTester.dispBoard();
 
